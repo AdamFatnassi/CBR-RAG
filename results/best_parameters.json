@@ -1,0 +1,41 @@
+{
+  "cbr": {
+    "weights": "mutual_information",
+    "k": 151,
+    "vote": "weighted_balanced",
+    "val_balanced_accuracy": 0.7485116273719579,
+    "case_base": "train + validation",
+    "weights_values": {
+      "age": 0.05940319960357326,
+      "campaign": 0.01828830234791312,
+      "previous": 0.096224267977848,
+      "emp.var.rate": 0.06025414407410635,
+      "cons.price.idx": 0.06025414407410635,
+      "cons.conf.idx": 0.06025414407410635,
+      "euribor3m": 0.06025414407410635,
+      "nr.employed": 0.06025414407410635,
+      "job": 0.04732916914611686,
+      "marital": 0.0061706034950247575,
+      "education": 0.010519100748828038,
+      "default": 0.02197240401544678,
+      "housing": 9.538899732116309e-05,
+      "loan": 2.9844676704403028e-05,
+      "contact": 0.047238430905587964,
+      "month": 0.11645058467368952,
+      "day_of_week": 0.0005738834571306614,
+      "poutcome": 0.13638185585557636,
+      "pdays_group": 0.13805224372870756
+    }
+  },
+  "knn": {
+    "k": 201,
+    "weighting": "uniform",
+    "rule": "balanced",
+    "val_ba": 0.7395050742556736
+  },
+  "checks": {
+    "max_abs_diff_knn_distance_vs_cbr": 1.6653345369377348e-16,
+    "agreement_cbr_vs_matched_balanced": 0.9944147644487615,
+    "cbr_seconds": 46.94067025184631
+  }
+}

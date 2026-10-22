@@ -1,0 +1,11 @@
+rank,similarity,outcome,reliability,age,campaign,previous,emp.var.rate,cons.price.idx,cons.conf.idx,euribor3m,nr.employed,job,marital,education,default,housing,loan,contact,month,day_of_week,poutcome,pdays_group,same_categories
+1,0.987,no,1.0,32.0,2.0,1.0,-1.1,94.2,-37.5,0.88,4963.6,student,single,high.school,no,no,no,cellular,sep,tue,success,<=6 days,9
+2,0.98,yes,1.0,24.0,1.0,1.0,-1.1,94.2,-37.5,0.89,4963.6,student,single,unknown,no,yes,no,cellular,sep,wed,success,<=6 days,9
+3,0.979,yes,1.0,23.0,3.0,1.0,-1.1,94.2,-37.5,0.89,4963.6,student,single,high.school,no,no,no,cellular,sep,wed,success,<=6 days,8
+4,0.948,no,1.0,30.0,4.0,2.0,-1.1,94.2,-37.5,0.88,4963.6,student,single,professional.course,no,unknown,unknown,cellular,sep,mon,success,<=6 days,8
+5,0.942,yes,1.0,38.0,2.0,1.0,-1.1,94.2,-37.5,0.88,4963.6,technician,single,professional.course,no,yes,no,cellular,sep,thu,success,<=6 days,9
+6,0.94,yes,1.0,31.0,2.0,1.0,-1.1,94.2,-37.5,0.88,4963.6,services,single,high.school,no,yes,no,cellular,sep,fri,success,<=6 days,8
+7,0.94,yes,1.0,30.0,3.0,1.0,-1.1,94.2,-37.5,0.88,4963.6,admin.,single,high.school,no,no,no,cellular,sep,fri,success,<=6 days,7
+8,0.939,yes,1.0,31.0,2.0,2.0,-1.1,94.2,-37.5,0.88,4963.6,student,single,unknown,no,unknown,unknown,cellular,sep,wed,success,<=6 days,7
+9,0.938,yes,1.0,28.0,3.0,1.0,-1.1,94.2,-37.5,0.88,4963.6,management,single,university.degree,no,yes,no,cellular,sep,wed,success,<=6 days,8
+10,0.937,no,1.0,29.0,4.0,1.0,-1.1,94.2,-37.5,0.88,4963.6,admin.,single,university.degree,no,no,no,cellular,sep,fri,success,<=6 days,7

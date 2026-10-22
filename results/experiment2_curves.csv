@@ -1,0 +1,117 @@
+variant,clients,balanced_accuracy
+CBR without learning,1000,0.7399294617534091
+CBR without learning,1250,0.7315848214285714
+CBR without learning,1500,0.7311435777752195
+CBR without learning,1750,0.7397027071914964
+CBR without learning,2000,0.7337142857142858
+CBR without learning,2250,0.7448467082415325
+CBR without learning,2500,0.7460990045735809
+CBR without learning,2750,0.7638751774650006
+CBR without learning,3000,0.7489785129792179
+CBR without learning,3250,0.7309817022577405
+CBR without learning,3500,0.7430127953185728
+CBR without learning,3750,0.7298108006769424
+CBR without learning,4000,0.73949736734008
+CBR without learning,4250,0.753832066311201
+CBR without learning,4500,0.7674242424242423
+CBR without learning,4750,0.7723214285714286
+CBR without learning,5000,0.7732072929867224
+CBR without learning,5250,0.7794444444444444
+CBR without learning,5500,0.7633006929643016
+CBR without learning,5750,0.7623570098430434
+CBR without learning,6000,0.7802536691770325
+CBR without learning,6250,0.7697495183044316
+CBR without learning,6500,0.78577478273678
+CBR without learning,6750,0.7908571428571429
+CBR without learning,7000,0.7912422304476658
+CBR without learning,7250,0.8041351280382688
+CBR without learning,7500,0.7996219831346322
+CBR without learning,7750,0.7614706006500358
+CBR without learning,8000,0.7486366985998527
+CBR retain only,1000,0.7388096409247418
+CBR retain only,1250,0.7287946428571428
+CBR retain only,1500,0.7225513076786219
+CBR retain only,1750,0.7305887726291314
+CBR retain only,2000,0.724
+CBR retain only,2250,0.7373314910937675
+CBR retain only,2500,0.7449652177255083
+CBR retain only,2750,0.7633063492511212
+CBR retain only,3000,0.7500908600314982
+CBR retain only,3250,0.7309817022577405
+CBR retain only,3500,0.7413424166994191
+CBR retain only,3750,0.7264362224992147
+CBR retain only,4000,0.7338026065200344
+CBR retain only,4250,0.749859308081916
+CBR retain only,4500,0.7640151515151514
+CBR retain only,4750,0.7750965250965252
+CBR retain only,5000,0.7772545124499093
+CBR retain only,5250,0.7861111111111111
+CBR retain only,5500,0.7731339902593726
+CBR retain only,5750,0.7690875232774674
+CBR retain only,6000,0.7821105877264736
+CBR retain only,6250,0.7697495183044316
+CBR retain only,6500,0.7834548534393873
+CBR retain only,6750,0.7868571428571429
+CBR retain only,7000,0.7929333240215104
+CBR retain only,7250,0.8006416184311174
+CBR retain only,7500,0.7960162838034313
+CBR retain only,7750,0.762589168882698
+CBR retain only,8000,0.7524195529353968
+CBR revise (reliability) + retain,1000,0.7367426819185565
+CBR revise (reliability) + retain,1250,0.7255322802197802
+CBR revise (reliability) + retain,1500,0.7189773000805852
+CBR revise (reliability) + retain,1750,0.7346371034711842
+CBR revise (reliability) + retain,2000,0.736
+CBR revise (reliability) + retain,2250,0.7503174128981664
+CBR revise (reliability) + retain,2500,0.7483954033590838
+CBR revise (reliability) + retain,2750,0.7630054814355156
+CBR revise (reliability) + retain,3000,0.7408561768301413
+CBR revise (reliability) + retain,3250,0.7198349272894013
+CBR revise (reliability) + retain,3500,0.7417791169920084
+CBR revise (reliability) + retain,3750,0.7241561021088581
+CBR revise (reliability) + retain,4000,0.7261846969640391
+CBR revise (reliability) + retain,4250,0.7355421169602915
+CBR revise (reliability) + retain,4500,0.7446969696969696
+CBR revise (reliability) + retain,4750,0.7568371943371943
+CBR revise (reliability) + retain,5000,0.7719685812469317
+CBR revise (reliability) + retain,5250,0.7822222222222223
+CBR revise (reliability) + retain,5500,0.7543940938436351
+CBR revise (reliability) + retain,5750,0.7541899441340782
+CBR revise (reliability) + retain,6000,0.7542897169021898
+CBR revise (reliability) + retain,6250,0.7486619567544424
+CBR revise (reliability) + retain,6500,0.7711739578730299
+CBR revise (reliability) + retain,6750,0.7674285714285713
+CBR revise (reliability) + retain,7000,0.7800830082509403
+CBR revise (reliability) + retain,7250,0.7907547579089176
+CBR revise (reliability) + retain,7500,0.7901424832800232
+CBR revise (reliability) + retain,7750,0.7552235025959224
+CBR revise (reliability) + retain,8000,0.7357160402849423
+k-NN standard (frozen),1000,0.7186319347782859
+k-NN standard (frozen),1250,0.7152730082417582
+k-NN standard (frozen),1500,0.7098460508000963
+k-NN standard (frozen),1750,0.7202084371366883
+k-NN standard (frozen),2000,0.7205714285714286
+k-NN standard (frozen),2250,0.7315247021920162
+k-NN standard (frozen),2500,0.7432645374533995
+k-NN standard (frozen),2750,0.7546234921351272
+k-NN standard (frozen),3000,0.747811099241181
+k-NN standard (frozen),3250,0.7303157343115421
+k-NN standard (frozen),3500,0.7374448665880606
+k-NN standard (frozen),3750,0.7303782973074311
+k-NN standard (frozen),4000,0.7396093954217857
+k-NN standard (frozen),4250,0.7492917711920182
+k-NN standard (frozen),4500,0.7729166666666667
+k-NN standard (frozen),4750,0.793516731016731
+k-NN standard (frozen),5000,0.7875637908004247
+k-NN standard (frozen),5250,0.7972222222222223
+k-NN standard (frozen),5500,0.7714504885758708
+k-NN standard (frozen),5750,0.7578877361000267
+k-NN standard (frozen),6000,0.7738461249165562
+k-NN standard (frozen),6250,0.7654677799186469
+k-NN standard (frozen),6500,0.7782810428634557
+k-NN standard (frozen),6750,0.7857142857142857
+k-NN standard (frozen),7000,0.786817451686604
+k-NN standard (frozen),7250,0.798980488863011
+k-NN standard (frozen),7500,0.7996219831346322
+k-NN standard (frozen),7750,0.764509729433118
+k-NN standard (frozen),8000,0.7628101203635471

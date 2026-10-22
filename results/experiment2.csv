@@ -1,0 +1,5 @@
+variant,BA all test clients,BA 2nd half of test,decisions changed,case base at the end
+CBR without learning,0.7553366174055829,0.7703337787988092,0,32940
+CBR retain only,0.7543702107279694,0.771956079832633,105,41176
+CBR revise (reliability) + retain,0.7448771893814997,0.7563994882188914,310,41176
+k-NN standard (frozen),0.7529334291187739,0.7745354495019506,0,32940
