@@ -3,3 +3,8 @@ pandas
 scikit-learn
 matplotlib
 streamlit   # only for src/app.py
+
+# dependancies for the RAG generator
+openai
+python-dotenv
+tabulate

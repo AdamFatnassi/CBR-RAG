@@ -16,8 +16,11 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
+
+
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))   # so that `src` imports work from anywhere
 from src.cbr import GROUPS, ROOT, VOTES, WEIGHT_SCHEMES, build, load_cbr_data  # noqa: E402
+from src.rag_generator import CBR_RAG_Generator
 
 RESULTS_DIR = ROOT / "results"
 INT_COLS = {"age", "campaign", "previous"}
@@ -31,6 +34,11 @@ st.set_page_config(page_title="Bank Marketing - Case-Based Reasoning", layout="w
 @st.cache_data
 def load_data():
     return load_cbr_data()
+
+@st.cache_resource
+def get_rag_generator(use_api: bool = True):
+    """Initialise le générateur RAG (avec ou sans API Groq)."""
+    return CBR_RAG_Generator(use_api=use_api)
 
 
 @st.cache_resource
@@ -147,6 +155,7 @@ with tab_predict:
                  "above that means this client looks more likely than average. This is the explanation:")
         first = ["rank", "similarity", "outcome", "reliability", "same_categories"]
         st.dataframe(table[first + [c for c in table.columns if c not in first]], hide_index=True)
+        
 
         st.subheader("3. Revise and retain")
         if last["answered"]:
@@ -166,7 +175,31 @@ with tab_predict:
                 st.warning(msg) if wrong else st.success(msg)
                 st.info(f"The client is now in the case base (RETAIN): {model.n} clients. Predict the same client again to see it.")
 
-
+    # --- DÉBUT DE LA PARTIE GÉNÉRATION (RAG) ---
+        st.subheader("4. Explication générée par l'IA (RAG)")
+        st.caption("Cette explication est générée par un LLM (Groq) à partir des cas retrouvés ci-dessus.")
+        
+        if st.button("Generate explications with AI"):
+            with st.spinner("Le LLM analyse les cas et rédige l'explication..."):
+                # 1. On prépare le contexte exactement comme notre interface l'exige
+                context = {
+                    "query_data": values, # Le dictionnaire des données du client
+                    "prediction": last["pred"],
+                    "score": last["score"],
+                    "retrieved_cases": table
+                }
+                
+                # 2. On récupère le générateur et on lance l'appel à Groq
+                generator = get_rag_generator()
+                explication = generator.generate_explanation(context)
+                
+                # 3. On sauvegarde dans le session_state pour que ça ne disparaisse pas au prochain clic
+                st.session_state.rag_explanation = explication
+    
+            # Si l'explication a déjà été générée, on l'affiche
+            if "rag_explanation" in st.session_state:
+                st.info(st.session_state.rag_explanation)
+            # --- FIN DE LA PARTIE GÉNÉRATION ---
 # ----------------------------------------------------------------------------
 # Tab 2: results of experiments.py
 # ----------------------------------------------------------------------------
