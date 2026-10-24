@@ -1,17 +1,78 @@
-# Python
-.venv/
+# ==========================================
+# PYTHON & BUILD ARTIFACTS
+# ==========================================
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+.eggs/
+.pytest_cache/
+.tox/
+.coverage
+htmlcov/
 
-# Jupyter
-.ipynb_checkpoints/
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
 
-# Generated preprocessing output
-data/processed/
+# ==========================================
+# IDEs & EDITORS
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
 
-# Local Streamlit secrets
+# ==========================================
+# SECRETS & ENVIRONMENT VARIABLES
+# ==========================================
+.env
+.env.*
 .streamlit/secrets.toml
 
-# OS files
+# ==========================================
+# JUPYTER NOTEBOOKS
+# ==========================================
+.ipynb_checkpoints/
+
+# ==========================================
+# DATA SCIENCE & MACHINE LEARNING ARTIFACTS
+# ==========================================
+# Data directories (uncomment if you don't track any data files)
+data/external/
+data/processed/
+data/temp/
+
+# Model weights, checkpoints, and binaries
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.onnx
+*.bin
+models/
+
+# Experiment tracking & logging
+logs/
+*.log
+wandb/
+mlruns/
+runs/
+
+# Local Vector Databases (e.g., Qdrant, Chroma)
+qdrant_storage/
+chroma_db/
+
+# ==========================================
+# OS FILES
+# ==========================================
 .DS_Store
+.DS_Store?
+._*
 Thumbs.db
+ehthumbs.db
