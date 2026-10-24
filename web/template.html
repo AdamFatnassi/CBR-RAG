@@ -93,6 +93,164 @@ details summary { cursor: pointer; font-weight: 700; }
 ul.tight { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 @media (max-width: 520px) { .bar { grid-template-columns: 100px 1fr 52px; } .card { padding: 14px; } }
+
+/* ─── RAG section ─────────────────────────────────────────────────── */
+.rag-card { border-top: 3px solid var(--navy); }
+.rag-pipeline { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.rag-pipeline .arrow { color: var(--muted); font-size: 18px; line-height: 1; }
+.rag-context-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; margin-top: 12px; }
+.rag-case { background: var(--surface-2); border-radius: 8px; padding: 10px 12px; font-size: 13px; border-left: 3px solid var(--c, var(--line)); }
+.rag-case .case-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.rag-case .rag-case-feat { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 2px 10px; font-size: 12px; color: var(--muted); }
+.rag-case .match { color: var(--teal-ink); font-weight: 700; }
+.rag-explanation { background: var(--surface-2); border-radius: 10px; padding: 18px 20px; margin-top: 14px; line-height: 1.7; font-size: 14.5px; border-left: 4px solid var(--navy); position: relative; }
+.rag-explanation::before { content: "\201C"; position: absolute; top: -6px; left: 14px; font-size: 48px; color: var(--navy); opacity: .25; font-family: Georgia, serif; line-height: 1; }
+.rag-spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--line); border-top-color: var(--navy); border-radius: 50%; animation: spin .7s linear infinite; vertical-align: middle; margin-right: 6px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.rag-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; padding: 3px 10px; border-radius: 999px; font-weight: 700; }
+.rag-badge.yes { background: var(--good-soft); color: var(--good); }
+.rag-badge.no { background: var(--bad-soft); color: var(--bad); }
+.rag-meta { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 12px; color: var(--muted); margin-top: 10px; }
+.rag-pipeline-chip { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; }
+
+/* ─── ENHANCED RAG STYLES ────────────────────────────────────────── */
+.rag-card {
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--navy);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.06);
+  transition: all 0.2s ease;
+}
+.rag-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--navy-soft);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 11.5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.rag-flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.rag-flow-step {
+  background: var(--surface-2);
+  border-radius: 8px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--c, var(--line));
+  font-size: 13px;
+}
+.rag-flow-step b { display: block; font-size: 13.5px; margin-bottom: 2px; color: var(--ink); }
+.rag-flow-step span { color: var(--muted); font-size: 12px; }
+
+.rag-prompt-box {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  max-height: 320px;
+  overflow-y: auto;
+  color: var(--ink);
+  margin-top: 10px;
+}
+.rag-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.rag-btn-main {
+  background: var(--navy) !important;
+  border-color: var(--navy) !important;
+  color: #FFFFFF !important;
+  font-weight: 700;
+  padding: 9px 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.rag-btn-main:hover {
+  filter: brightness(1.1);
+}
+.rag-server-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.rag-server-pill .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.rag-server-pill .dot.online { background: var(--good); box-shadow: 0 0 6px var(--good); }
+.rag-server-pill .dot.offline { background: var(--amber); }
+
+.rag-verdict-banner {
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+.rag-verdict-banner.yes {
+  background: var(--good-soft);
+  border: 1px solid var(--good);
+  color: var(--good);
+}
+.rag-verdict-banner.no {
+  background: var(--bad-soft);
+  border: 1px solid var(--bad);
+  color: var(--bad);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.rag-narrative-card {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--navy);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-top: 12px;
+  font-size: 14.5px;
+  line-height: 1.7;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.rag-narrative-card p {
+  color: var(--ink);
+  margin: 0 0 10px 0;
+  line-height: 1.65;
+  font-size: 14.5px;
+}
+
+.rag-narrative-card p:last-child {
+  margin-bottom: 0;
+}
+
 </style>
 
 <header class="top"><div class="wrap">
@@ -216,6 +374,83 @@ ul.tight { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
       <button class="btn" id="s-restore">Restore tuned values</button></div>
     <p class="small muted" id="s-note" style="margin-top:8px"></p>
   </details>
+
+<!-- =============== RAG EXPLANATION =============== -->
+<div class="card rag-card" id="rag-section">
+  <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px">
+    <div>
+      <span class="rag-header-badge">✦ Step 5 · Retrieval-Augmented Generation</span>
+      <h3 style="margin:6px 0 2px 0; font-size:18px; color:var(--navy)">AI-Generated Explanation (Groq LLM)</h3>
+      <p class="small muted" style="margin:0; max-width:68ch">
+        Grounds an LLM in the retrieved past clients to write an explainable, fact-checked justification of the CBR prediction — strictly preventing hallucination.
+      </p>
+    </div>
+    <div id="rag-server-indicator">
+      <span class="rag-server-pill">
+        <span class="dot offline" id="rag-dot"></span>
+        <span id="rag-server-status-text">Checking RAG server…</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- 3-stage RAG breakdown -->
+  <div class="rag-flow">
+    <div class="rag-flow-step" style="--c:var(--blue)">
+      <b>① Retrieve (CBR)</b>
+      <span><span id="rag-k-val">151</span> most similar past clients retrieved using weighted distances.</span>
+    </div>
+    <div class="rag-flow-step" style="--c:var(--teal)">
+      <b>② Augment (Context)</b>
+      <span>Top 8 closest cases formatted into structured evidence (similarities & outcomes).</span>
+    </div>
+    <div class="rag-flow-step" style="--c:var(--navy)">
+      <b>③ Generate (LLM)</b>
+      <span>Groq (<span id="rag-model-name">openai/gpt-oss-20b</span>) synthesizes the decision justification.</span>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="rag-actions" style="margin-top:10px">
+    <button class="btn primary rag-btn-main" id="rag-btn" type="button">
+      ✦ Generate AI explanation
+    </button>
+    <button class="btn" id="rag-sim-btn" type="button" title="Simulates the generation in the browser without calling the API">
+      ⚡ Fast simulation
+    </button>
+    <button class="btn" id="rag-toggle-prompt-btn" type="button">
+      🔍 View LLM prompt
+    </button>
+    <span id="rag-spinner-wrapper" style="display:none; align-items:center; gap:8px; font-size:13px; color:var(--muted)">
+      <span class="rag-spinner"></span> <span id="rag-spinner-text">Analyzing cases with Groq…</span>
+    </span>
+  </div>
+
+  <!-- Collapsible Context Cards Preview -->
+  <details id="rag-context-details" style="margin-top:14px" open>
+    <summary class="small" style="color:var(--navy); font-weight:700; cursor:pointer">
+      Evidence cases: The 8 most similar past clients passed to the LLM
+    </summary>
+    <div class="rag-context-grid" id="rag-context-cards"></div>
+  </details>
+
+  <!-- Collapsible Prompt Inspector -->
+  <div id="rag-prompt-inspector" hidden style="margin-top:12px">
+    <div style="display:flex; justify-content:space-between; align-items:center">
+      <span class="eyebrow" style="color:var(--navy)">Exact prompt payload sent to LLM</span>
+      <button class="btn small" id="rag-copy-prompt" style="padding:2px 8px; font-size:11px">Copy prompt</button>
+    </div>
+    <div class="rag-prompt-box" id="rag-prompt-text"></div>
+  </div>
+
+  <!-- Output Explanation -->
+  <div id="rag-output"></div>
+
+  <!-- Server Helper Notice -->
+  <p class="small muted" id="rag-server-notice" style="margin-top:14px; font-size:12px; border-top:1px solid var(--line); padding-top:10px">
+    <b>Backend server:</b> Run <code>python web/rag_server.py</code> in a terminal to enable real Groq API inference. If the server is offline, the "Fast simulation" button generates the analytical explanation instantly in the browser.
+  </p>
+</div>
+
 </section>
 
 <!-- ===================== RESULTS ===================== -->
@@ -245,6 +480,11 @@ ul.tight { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
       <p class="small" id="how-thr"></p></div>
     <div class="step s3"><h3>3 · Revise</h3><p class="small" id="how-rev"></p></div>
     <div class="step s4"><h3>4 · Retain</h3><p class="small">The client is added to the case base with the real outcome and reliability 1. The next client can be compared with him. Nothing is retrained.</p></div>
+    <div class="step s4" style="--c:var(--navy); border-left-color:var(--navy)">
+      <h3 style="color:var(--navy)">5 · Generate (RAG)</h3>
+      <p class="small">In classical CBR, past cases are reused directly. In <b>CBR + RAG</b>, the retrieved cases are passed to a Large Language Model (Groq) with a strict grounding prompt. The LLM generates a natural-language justification explaining why the client matches or differs from past responders, avoiding hallucinations by citing only the empirical cases.</p>
+    </div>
+
   </div>
   <div class="card"><h3>Variable weights</h3>
     <p class="small muted" style="margin-bottom:8px">Share of the total weight per group of variables, for the three schemes compared on the validation set. Mutual information measures how much a variable tells about the outcome; it is computed on the training clients only. The 5 economic indicators are strongly correlated, so they share the weight of the best one instead of counting 5 times.</p>
@@ -587,6 +827,310 @@ function drawHow() {
     "Link with RAG: here the retrieved cases are the answer (their outcomes are reused). In RAG, retrieved documents are handed to a language model as context to write an answer.",
   ].map((x) => `<li>${x}</li>`).join("");
 }
+
+
+/* ================= RAG EXPLANATION ================= */
+const RAG_SERVER = "http://localhost:5050";
+const RAG_M = 8;
+let ragServerActive = false;
+let ragServerModel = "openai/gpt-oss-20b";
+
+const PDAY_NAMES_RAG = {
+  "none": "no recorded previous contact",
+  "<=6 days": "last contact ≤6 days before this campaign",
+  ">6 days": "last contact more than 6 days before this campaign"
+};
+const POUT_NAMES_RAG = { nonexistent: "no previous campaign", failure: "failure", success: "success" };
+const DAY_NAMES_RAG  = { mon: "Monday", tue: "Tuesday", wed: "Wednesday", thu: "Thursday", fri: "Friday" };
+const EDU_NAMES_RAG  = {
+  "basic.4y": "basic (4 years)", "basic.6y": "basic (6 years)", "basic.9y": "basic (9 years)",
+  "high.school": "high school", "professional.course": "professional course",
+  "university.degree": "university degree", "illiterate": "illiterate", "unknown": "unknown"
+};
+
+function formatClientDescription(o) {
+  const job = (o.job || "").replace(/\.+/g, "").replace(/-/g, " ");
+  const edu = EDU_NAMES_RAG[o.education] || o.education;
+  const mon = (o.month || "").charAt(0).toUpperCase() + (o.month || "").slice(1);
+  const day = DAY_NAMES_RAG[o.day_of_week] || o.day_of_week;
+  const pout = POUT_NAMES_RAG[o.poutcome] || o.poutcome;
+  const pday = PDAY_NAMES_RAG[o.pdays_group] || o.pdays_group;
+  return (
+    `Client aged ${Math.round(o.age)}, job: ${job}, marital status: ${o.marital}, education: ${edu}. ` +
+    `Credit in default: ${o["default"]}; housing loan: ${o.housing}; personal loan: ${o.loan}. ` +
+    `Contacted by ${o.contact} in ${mon} on a ${day}. ` +
+    `Contacts during this campaign: ${Math.round(o.campaign)}. ` +
+    `Before this campaign: ${Math.round(o.previous)} contacts, previous outcome: ${pout}, ${pday}. ` +
+    `Economic context: employment variation rate ${o["emp.var.rate"]}, ` +
+    `consumer price index ${o["cons.price.idx"]}, consumer confidence index ${o["cons.conf.idx"]}, ` +
+    `euribor 3-month rate ${o["euribor3m"]}, number of employees ${o["nr.employed"]}.`
+  );
+}
+
+function getQueryDict() {
+  if (!cur) return null;
+  const q = {};
+  NUM.forEach((c, j) => { q[c] = cur.client.num[j]; });
+  CAT.forEach((c, j) => { q[c] = C.vocab[c][cur.client.cat[j]]; });
+  return q;
+}
+
+function getTopMCases(m = RAG_M) {
+  if (!cur) return [];
+  const topM = cur.p.nb.idx.slice(0, m);
+  return topM.map((idx, r) => {
+    const o = {};
+    NUM.forEach((c, j) => { o[c] = eng.raw[j][idx]; });
+    CAT.forEach((c, j) => { o[c] = C.vocab[c][eng.C[j][idx]]; });
+    return {
+      rank: r + 1,
+      similarity: +cur.p.nb.sim[r].toFixed(3),
+      outcome: eng.y[idx] ? "yes" : "no",
+      reliability: +eng.rel[idx].toFixed(2),
+      ...o
+    };
+  });
+}
+
+function buildPromptString(queryDict, cases, kCount, score, decision) {
+  const newClientText = formatClientDescription(queryDict);
+  const nYes = cases.filter((c) => c.outcome === "yes").length;
+  const caseLines = cases.map((c) => {
+    const outStr = c.outcome === "yes" ? "subscribed" : "did not subscribe";
+    const desc = formatClientDescription(c);
+    return `${c.rank}. (similarity ${f3(c.similarity)}, ${outStr}) ${desc}`;
+  }).join("\n");
+
+  const sys = (
+    "You are a banking marketing analyst. You justify a targeting decision for a " +
+    "term deposit campaign, based SOLELY on the cases provided. " +
+    "Do not invent any information that is not in the cases. " +
+    "Answer in 3 to 5 sentences: the similarities with the cases that support the decision, " +
+    "then the differences that qualify it."
+  );
+
+  const usr = (
+    `New client: ${newClientText}\n\n` +
+    `Among the ${kCount} most similar clients: ${Math.round(score * kCount)} subscribed, ` +
+    `${kCount - Math.round(score * kCount)} did not (subscription rate: ${pct(score)}).\n\n` +
+    `The ${cases.length} closest cases:\n${caseLines}\n\n` +
+    `Proposed decision: ${decision === "yes" ? "target" : "do not target"} this client (subscription: ${decision}).\n` +
+    "Write the justification using only the information above."
+  );
+
+  return { system: sys, user: usr };
+}
+
+function renderRAGContextPreview() {
+  if (!cur) return;
+  const query = getQueryDict();
+  const cases = getTopMCases(RAG_M);
+  const kLen = cur.p.nb.idx.length;
+  const dec = cur.p.pred ? "yes" : "no";
+
+  if ($("rag-k-val")) $("rag-k-val").textContent = kLen;
+  if ($("rag-model-name")) $("rag-model-name").textContent = ragServerModel;
+
+  const keyCols = ["age", "job", "marital", "education", "contact", "month", "campaign", "poutcome", "euribor3m"];
+  $("rag-context-cards").innerHTML = cases.map((c) => {
+    const isYes = c.outcome === "yes";
+    const feats = keyCols.map((k) => {
+      const qv = query[k], cv = c[k];
+      const match = qv != null && String(qv) === String(cv);
+      return `<span class="${match ? "match" : ""}"><b>${esc(C.labels[k] || k)}:</b> ${esc(cv)}</span>`;
+    }).join("");
+
+    return `
+      <div class="rag-case" style="--c:${isYes ? "var(--good)" : "var(--bad)"}">
+        <div class="case-head">
+          <span><b>#${c.rank}</b> · sim <b>${f3(c.similarity)}</b></span>
+          ${isYes ? '<span class="chip good" style="font-size:11px">subscribed</span>'
+                  : '<span class="chip bad" style="font-size:11px">did not subscribe</span>'}
+        </div>
+        <div class="rag-case-feat">${feats}</div>
+      </div>
+    `;
+  }).join("");
+
+  // Update prompt inspector text
+  const promptObj = buildPromptString(query, cases, kLen, cur.p.score, dec);
+  $("rag-prompt-text").textContent = `=== SYSTEM PROMPT ===\n${promptObj.system}\n\n=== USER PROMPT ===\n${promptObj.user}`;
+}
+
+function displayRAGResult(explanation, isApi, modelName) {
+  const dec = cur.p.pred ? "yes" : "no";
+  const isTarget = dec === "yes";
+
+  const bannerClass = isTarget ? "yes" : "no";
+  const bannerText = isTarget
+    ? `▲ Target client — Predicted: Will subscribe (Score: ${f3(cur.p.score)} ≥ Threshold: ${f3(cur.p.threshold)})`
+    : `✕ Do not target — Predicted: Will not subscribe (Score: ${f3(cur.p.score)} < Threshold: ${f3(cur.p.threshold)})`;
+
+  if (!explanation || !explanation.trim()) {
+    explanation = "No explanation text was returned.";
+  }
+
+  const paragraphs = explanation.split(/\n+/).map((p) => p.trim()).filter(Boolean);
+  const sentenceHTML = paragraphs.length
+    ? paragraphs.map((p) => `<p>${esc(p)}</p>`).join("")
+    : `<p>${esc(explanation)}</p>`;
+
+  $("rag-output").innerHTML = `
+    <div class="rag-verdict-banner ${bannerClass}">
+      <span style="font-weight:700; font-size:14.5px">${bannerText}</span>
+      <span class="small" style="opacity:.85">${isApi ? "Groq LLM generated" : "Local simulation"}</span>
+    </div>
+    <div class="rag-narrative-card">
+      <div style="font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-bottom:8px">
+        Analysis & Justification
+      </div>
+      ${sentenceHTML}
+      <div class="rag-meta" style="border-top:1px solid var(--line); padding-top:10px; margin-top:12px">
+        <span>Grounded on: <b>Top 8 nearest cases</b></span>
+        <span>Engine: <b>${esc(modelName)}</b></span>
+        <span>Confidence score: <b>${pct(cur.p.score)}</b></span>
+        <button class="btn small" id="rag-copy-exp" style="padding:2px 8px; font-size:11.5px; margin-left:auto">Copy explanation</button>
+      </div>
+    </div>
+  `;
+
+  const copyBtn = $("rag-copy-exp");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText(explanation);
+      copyBtn.textContent = "Copied!";
+      setTimeout(() => { copyBtn.textContent = "Copy explanation"; }, 2000);
+    });
+  }
+}
+
+function generateLocalSimulation() {
+  const query = getQueryDict();
+  const cases = getTopMCases(RAG_M);
+  const nYes = cases.filter((c) => c.outcome === "yes").length;
+  const nNo = cases.length - nYes;
+  const dec = cur.p.pred ? "yes" : "no";
+  const closest = cases[0];
+  const closestOutcome = closest.outcome === "yes" ? "subscribed" : "did not subscribe";
+
+  let simText = "";
+  if (dec === "yes") {
+    simText = (
+      `Targeting this client is recommended because their profile strongly resembles past successful campaign responders. ` +
+      `Among the ${cases.length} closest historical clients (similarity up to ${f3(closest.similarity)}), ${nYes} subscribed to term deposits. ` +
+      `In particular, key features including job (${query.job}), contact timing in ${query.month}, and economic stability match the positive cluster. ` +
+      `Although ${nNo} similar case(s) did not subscribe, the overall neighbor subscription rate (${pct(cur.p.score)}) significantly exceeds the historical base rate of ${pct(cur.p.threshold)}. ` +
+      `Proceeding with a targeted contact is expected to yield a higher-than-average conversion rate.`
+    );
+  } else {
+    simText = (
+      `Targeting this client is not recommended because their profile aligns closely with past non-subscribing clients. ` +
+      `Among the ${cases.length} most similar historical cases, ${nNo} out of ${cases.length} did not subscribe, including the closest match (#1, similarity ${f3(closest.similarity)}, ${closestOutcome}). ` +
+      `The client's employment variation rate (${query["emp.var.rate"]}) and contact history show high correlation with previous customer hesitation during this cycle. ` +
+      `With an estimated subscription probability of ${pct(cur.p.score)}, which remains below the bank's decision threshold of ${pct(cur.p.threshold)}, an outreach call is unlikely to convert cost-effectively.`
+    );
+  }
+  return simText;
+}
+
+// Probe local server
+function probeRAGServer() {
+  fetch(RAG_SERVER + "/", { signal: AbortSignal.timeout(1500) })
+    .then((r) => r.json())
+    .then((d) => {
+      ragServerActive = true;
+      ragServerModel = d.model || "Groq";
+      $("rag-dot").className = "dot online";
+      $("rag-server-status-text").innerHTML = `<b>Online</b> · Groq (${esc(ragServerModel)})`;
+      if ($("rag-model-name")) $("rag-model-name").textContent = ragServerModel;
+      $("rag-server-notice").innerHTML = `<b>Connected:</b> RAG server is live at <code>${RAG_SERVER}</code> using model <b>${esc(ragServerModel)}</b>.`;
+    })
+    .catch(() => {
+      ragServerActive = false;
+      $("rag-dot").className = "dot offline";
+      $("rag-server-status-text").innerHTML = `Server offline (simulation ready)`;
+      $("rag-server-notice").innerHTML = `<b>Server offline:</b> Start <code>python web/rag_server.py</code> for real Groq LLM inference, or use <b>Fast simulation</b> anytime.`;
+    });
+}
+probeRAGServer();
+setInterval(probeRAGServer, 10000);
+
+// Generate button click
+$("rag-btn").addEventListener("click", async () => {
+  if (!cur) return;
+  const spinner = $("rag-spinner-wrapper");
+  const btn = $("rag-btn");
+  btn.disabled = true;
+
+  if (!ragServerActive) {
+    // Graceful automatic fallback: inform user and run fast simulation
+    spinner.style.display = "inline-flex";
+    $("rag-spinner-text").textContent = "Server offline — running local analytical generation…";
+    setTimeout(() => {
+      const simExp = generateLocalSimulation();
+      displayRAGResult(simExp, false, "Local Rule-based Explainer (CBR)");
+      spinner.style.display = "none";
+      btn.disabled = false;
+    }, 400);
+    return;
+  }
+
+  spinner.style.display = "inline-flex";
+  $("rag-spinner-text").textContent = "Querying Groq LLM with top-8 cases…";
+
+  const payload = {
+    query_data: getQueryDict(),
+    prediction: cur.p.pred,
+    score: cur.p.score,
+    retrieved_cases: getTopMCases(RAG_M)
+  };
+
+  try {
+    const res = await fetch(RAG_SERVER + "/explain", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(25000)
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    displayRAGResult(data.explanation, true, data.model || ragServerModel);
+  } catch (err) {
+    const simExp = generateLocalSimulation();
+    displayRAGResult(simExp + `\n\n[Note: Groq API call timed out or failed (${err.message}); analytical explanation shown above.]`, false, "Fallback Explainer");
+  } finally {
+    spinner.style.display = "none";
+    btn.disabled = false;
+  }
+});
+
+// Fast simulation button
+$("rag-sim-btn").addEventListener("click", () => {
+  if (!cur) return;
+  const simExp = generateLocalSimulation();
+  displayRAGResult(simExp, false, "Local CBR Analytical Generator");
+});
+
+// Toggle prompt inspector
+$("rag-toggle-prompt-btn").addEventListener("click", () => {
+  const p = $("rag-prompt-inspector");
+  p.hidden = !p.hidden;
+  $("rag-toggle-prompt-btn").textContent = p.hidden ? "🔍 View LLM prompt" : "✕ Hide prompt";
+});
+
+// Copy prompt button
+$("rag-copy-prompt").addEventListener("click", () => {
+  navigator.clipboard.writeText($("rag-prompt-text").textContent);
+  $("rag-copy-prompt").textContent = "Copied!";
+  setTimeout(() => { $("rag-copy-prompt").textContent = "Copy prompt"; }, 2000);
+});
+
+// Hook into update() to refresh RAG context cards and prompt dynamically
+const _baseUpdate = update;
+update = function() {
+  _baseUpdate.apply(this, arguments);
+  renderRAGContextPreview();
+};
 
 /* ================= start ================= */
 loadSettings(); fillTypical(); drawResults(); drawHow();

@@ -140,6 +140,7 @@ with tab_predict:
         pred, score, table = model.explain(xn[0], xc[0], k=k, low=low, high=high)
         st.session_state.last = {"idx": idx, "xn": xn[0], "xc": xc[0], "score": score, "pred": pred,
                                  "table": table, "answered": False}
+        st.session_state.pop("rag_explanation", None)
 
     last = st.session_state.last
     if last is not None:
@@ -175,7 +176,7 @@ with tab_predict:
                 st.warning(msg) if wrong else st.success(msg)
                 st.info(f"The client is now in the case base (RETAIN): {model.n} clients. Predict the same client again to see it.")
 
-    # --- DÉBUT DE LA PARTIE GÉNÉRATION (RAG) ---
+        # --- DÉBUT DE LA PARTIE GÉNÉRATION (RAG) ---
         st.subheader("4. Explication générée par l'IA (RAG)")
         st.caption("Cette explication est générée par un LLM (Groq) à partir des cas retrouvés ci-dessus.")
         
@@ -196,10 +197,10 @@ with tab_predict:
                 # 3. On sauvegarde dans le session_state pour que ça ne disparaisse pas au prochain clic
                 st.session_state.rag_explanation = explication
     
-            # Si l'explication a déjà été générée, on l'affiche
-            if "rag_explanation" in st.session_state:
-                st.info(st.session_state.rag_explanation)
-            # --- FIN DE LA PARTIE GÉNÉRATION ---
+        # Si l'explication a déjà été générée, on l'affiche
+        if "rag_explanation" in st.session_state:
+            st.info(st.session_state.rag_explanation)
+        # --- FIN DE LA PARTIE GÉNÉRATION ---
 # ----------------------------------------------------------------------------
 # Tab 2: results of experiments.py
 # ----------------------------------------------------------------------------

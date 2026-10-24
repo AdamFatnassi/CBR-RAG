@@ -5,6 +5,7 @@ Ce module prend le prompt construit par augmentation.py (Partie 2)
 et génère la réponse finale via le LLM.
 """
 import os
+from typing import Union
 from openai import OpenAI
 from dotenv import load_dotenv
 
@@ -32,13 +33,13 @@ class CBR_RAG_Generator:
                     base_url="https://api.groq.com/openai/v1"
                 )
 
-    def generate_explanation(self, query_row_id: int) -> str:
+    def generate_explanation(self, query: Union[int, dict]) -> str:
         """
-        Prend l'ID du client (query_row_id), récupère le prompt via augmentation.py,
-        et génère l'explication avec Groq.
+        Prend l'ID du client (query_row_id: int) ou le dictionnaire de contexte (context: dict),
+        récupère le prompt via augmentation.py, et génère l'explication avec Groq.
         """
-        # 1. Appel à la partie Augmented (ton collègue)
-        system_prompt, user_prompt, decision, truth = build_prompt(query_row_id)
+        # 1. Appel à la partie Augmented
+        system_prompt, user_prompt, decision, truth = build_prompt(query)
         
         # --- MODE SIMULATION (Si pas de clé API) ---
         if not self.use_api:

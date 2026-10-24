@@ -36,6 +36,6 @@
   "checks": {
     "max_abs_diff_knn_distance_vs_cbr": 1.6653345369377348e-16,
     "agreement_cbr_vs_matched_balanced": 0.9944147644487615,
-    "cbr_seconds": 46.94067025184631
+    "cbr_seconds": 17.83371067047119
   }
 }
